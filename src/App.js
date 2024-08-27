@@ -1,12 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
-import './App.css';
+import NotFound from './components/NotFound';
 
 const App = () => {
     return (
-        <div className="App">
-            <HomePage />
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="*" element={<NotFound />} /> {/* Catch-all route */}
+            </Routes>
+        </Router>
     );
 };
 
